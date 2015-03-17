@@ -37,8 +37,6 @@ angular.module("ngDraggable", [])
                     var onDragSuccessCallback = $parse(attrs.ngDragSuccess) || null;
                     var allowTransform = angular.isDefined(attrs.allowTransform) ? scope.$eval(attrs.allowTransform) : true;
 
-                    console.log("40","scope","link",  angular.isDefined(attrs.allowTransform) , allowTransform);
-
                     var initialize = function () {
                         element.attr('draggable', 'false'); // prevent native drag
                         // check to see if drag handle(s) was specified
@@ -167,7 +165,7 @@ angular.module("ngDraggable", [])
                             _ty = _my - element.centerY - _dragOffset.top;
                         } else {
                             _tx = _mx - _mrx - _dragOffset.left;
-                            _ty = _my - _mry - _dragOffset.top;
+                            _ty = _my - _mry - _dragOffset.top + document.body.scrollTop;
                         }
 
                         moveElement(_tx, _ty);
@@ -280,7 +278,6 @@ angular.module("ngDraggable", [])
 
                         // don't listen to drop events if this is the element being dragged
                         // only update the styles and return
-                        console.log("266","onDragEnd","onDragEnd", _myid, obj.uid);
                         if (!_dropEnabled || _myid === obj.uid) {
                             updateDragStyles(false, obj.element);
                             return;
