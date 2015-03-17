@@ -165,7 +165,7 @@ angular.module("ngDraggable", [])
                             _ty = _my - element.centerY - _dragOffset.top;
                         } else {
                             _tx = _mx - _mrx - _dragOffset.left;
-                            _ty = _my - _mry - _dragOffset.top + document.body.scrollTop;
+                            _ty = _my - element.centerY - $window.pageYOffset;
                         }
 
                         moveElement(_tx, _ty);
