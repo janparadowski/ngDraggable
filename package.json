@@ -1,6 +1,6 @@
 {
 	"name": "ngDraggable",
-  "version": "0.1.2.2",
+        "version": "0.1.2.3",
 	"description": "Drag and drop library.",
 	"homepage": "https://github.com/janparadowski/ngDraggable",
 	"repository": {
